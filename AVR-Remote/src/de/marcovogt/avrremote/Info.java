@@ -42,7 +42,7 @@ public class Info extends JPanel {
 		add(lblIcon);
 		
 		txtpnVersion = new JTextPane();
-		txtpnVersion.setText("Version: \r\n1.4\r\n\r\nDate: 02.08.2015");
+		txtpnVersion.setText("Version: \r\n1.5\r\n\r\nDate: 11.08.2015");
 		txtpnVersion.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtpnVersion.setEditable(false);
 		txtpnVersion.setBackground(UIManager.getColor("ScrollBar.foreground"));

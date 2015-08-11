@@ -115,7 +115,11 @@ public class Settings extends JPanel {
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				window.showMain();
+				if(Controller.isConnected()) {
+					window.showMain();
+				} else {
+					window.showNoConnection();
+				}
 			}
 		});
 		btnCancel.setBounds(10, 337, 98, 37);

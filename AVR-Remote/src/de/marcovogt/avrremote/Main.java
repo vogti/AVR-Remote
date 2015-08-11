@@ -58,7 +58,7 @@ public class Main extends JPanel {
 		heading.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		add(heading);
 
-		lblVersion = new JLabel("AVR Remote v1.4");
+		lblVersion = new JLabel("AVR Remote v1.5");
 		lblVersion.setBounds(45, 346, 130, 25);
 		lblVersion.setHorizontalAlignment(SwingConstants.CENTER);
 		add(lblVersion);
@@ -177,7 +177,6 @@ public class Main extends JPanel {
 								lblVolume.setText(sliderVolume.getValue() + "");
 							} else {
 								connected = false;
-								window.showNoConnection();
 							}
 						}
 						updateConnected();
@@ -197,8 +196,16 @@ public class Main extends JPanel {
 	public void updateConnected() {
 		boolean oldState = connected;
 		connected = Controller.isConnected();
-		if(!oldState && connected) {
-			window.showMain();
+		if(oldState == connected) {
+			if(connected) {
+				if(window.getCurrent() == "noConnection") {
+					window.showMain();
+				}		
+			} else {
+				if(window.getCurrent() != "settings") {
+					window.showNoConnection();
+				}
+			}
 		}
 	}
 

@@ -15,6 +15,8 @@ public class MainWindow {
 	private Info info;
 	private Settings settings;
 	private NoConnection noConnection;
+	
+	private String current;
 
 	/**
 	 * Launch the application.
@@ -71,12 +73,12 @@ public class MainWindow {
 		frame.getContentPane().add(main, "main");
 		
 		if(Config.getAVR().equals("")) {
-			cl.show(frame.getContentPane(), "settings");
+			showSettings();
 		} else {
 			if(Controller.isConnected()) {
-				cl.show(frame.getContentPane(), "main");
+				showMain();
 			} else {
-				cl.show(frame.getContentPane(), "noConnection");
+				showNoConnection();
 			}
 		}
 	}
@@ -85,20 +87,28 @@ public class MainWindow {
 		main.updateFavoriteSourceLabel();
 		main.updateSliderMaximumVolume();
 		cl.show(frame.getContentPane(), "main");
+		current = "main";
 	}
 	
 	public void showInfo() {
 		cl.show(frame.getContentPane(), "info");
+		current = "info";
 	}
 	
 	public void showSettings() {
 		cl.show(frame.getContentPane(), "settings");
+		current = "settings";
 		settings.update();
 	}
 
 	public void showNoConnection() {
 		cl.show(frame.getContentPane(), "noConnection");
+		current = "noConnection";
 		noConnection.update();
+	}
+	
+	public String getCurrent() {
+		return current;
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -20,7 +21,11 @@ public class Controller {
 	
 	public static boolean isConnected() {
 		try {
-			new URL("http://" + Config.getAVR() + "/goform/formMainZone_MainZoneXmlStatus.xml").openStream();
+			URL url = new URL("http://" + Config.getAVR() + "/goform/formMainZone_MainZoneXmlStatus.xml");
+			URLConnection con = url.openConnection();
+			con.setConnectTimeout(2000);
+			con.setReadTimeout(2000);
+			con.getInputStream();
 			return true;
 		} catch(Exception e) {
 			return false;
