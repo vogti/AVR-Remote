@@ -1,12 +1,13 @@
 # AVR-Remote
 Remote control app for Denon AVR.
 
-## Screenshot ##
-![Screenshot](https://github.com/vogti/AVR-Remote/blob/master/image.png)
-
 
 ## Installing ##
 Download the latest [AVR-Remote.jar](https://github.com/vogti/AVR-Remote/releases/latest)
+
+
+## Screenshot ##
+![Screenshot](https://github.com/vogti/AVR-Remote/blob/master/image.png)
 
 
 ## Notes ##
